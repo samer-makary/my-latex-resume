@@ -1,6 +1,6 @@
 # Ignore compiled resume output files, except for the main file.
 *.pdf
-!Samer Makary.pdf
+!Samer Samy Makary.pdf
 *.ps
 # *.eps
 
