@@ -1,14 +1,70 @@
-% LaTeX file for resume 
-% This file uses the resume document class (res.cls)
+%-------------------------
+% Resume in Latex
+% License : MIT
+%------------------------
 
-\documentclass{res} 
-%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
-%\usepackage{newcent}   % uses new century schoolbook postscript font 
-\usepackage{hyperref}
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
+\usepackage[english]{babel}
 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 \hypersetup{
-    bookmarks=true,         % show bookmarks bar?
     unicode=false,          % non-Latin characters in Acrobat?s bookmarks
     pdftoolbar=true,        % show Acrobat?s toolbar?
     pdfmenubar=true,        % show Acrobat?s menu?
@@ -27,112 +83,130 @@
     filecolor=magenta,      % color of file links
     urlcolor=blue           % color of external links
 }
-\setlength{\textheight}{9.5in} % increase text height to fit on 1-page 
-
-\begin{document} 
-
-\name{Samer Samy Makary\\[25pt]}     % the \\[25pt] adds a blank
-				        % line after name      
-
-\address{Current Residence\\
-Los Angeles, USA}
-\address{E-mail: \href{mailto:samer.samy.nazzir@gmail.com}{\underline{samer.samy.nazzir@gmail.com}} \\
-Website: \href{http://sites.google.com/site/smeggaly/}{\underline{sites.google.com/site/smeggaly/}} \\
-Date of birth: 05 December 19901}
-                                  
-\begin{resume}
- 
-\section{EDUCATION} 
-	\vspace{-0.1in}
-	\begin{tabbing}
-	\hspace{4.4in}\= \kill
-	\textbf{Alexandria University, Faculty of Engineering} \> \textbf{September 2007 - July 2012}\\
-	\end{tabbing}\vspace{-35pt}
-	Major: \textbf{B.Sc. Computer and Systems Engineering}\\
-	Grade: \textbf{Very Good with Honors} (82.91 \%) - \textbf{GPA: 3.499 / 4.0}\\
-	Graduation Project: Semantic similarity for Arabic text with application to document clustering.
-	
-\section{WORK EXPERIENCE \footnotemark }
-	\vspace{-0.1in}
-	\begin{tabbing}
-	\hspace{4.4in}\= \kill
-	\textbf{Game Developer Trainee at \href{http://sites.google.com/site/smeggaly/}{\underline{Innuva, IT}}} \> \textbf{July 2011 - September 2011}\\
-	\end{tabbing}\vspace{-30pt}
-	Game design and implementation using \textbf{Unity3d} game engine. The project involved creating a 3D shooting game for Web and Android platform. The game logic is being implemented using JavaScript for Unity3d.
-	\footnotetext{References are available upon request}
-	
-\section{ONLINE COURSES \footnotemark } 
-	\begin{itemize}
-	\item Edx - ColumbiaX: CSMM.102x Machine Learning
-	\item Edx - ColumbiaX: CSMM.101x Artificial Intelligence
-	\item Udacity - Introduction to AI for Robotics
-	\item Coursera - Machine Learning
-	\item Coursera - Coding the Matrix
-	\item Edx - Scalable Machine Learning
-	\item Coursera - Programming Languages
-	\item Coursera - Introduction to Functional Programming in Scala
-	\item Coursera - Introduction to Cryptography
-	\item Udacity - Applied Cryptography
-	\item Coursera - Introduction to Recommender Systems
-	\item Coursera - Algorithms Design and Analysis
-	\footnotetext{Certificates are available upon request}
-	\end{itemize}	 
-
-\section{TECHNICAL SKILLS}       
-	\begin{itemize}   
-    \item Programming Languages: \textbf{Java}, \textbf{Python}, and \textbf{C/C++}.
- 	\item Web development: \textbf{HTML/XHTML}, \textbf{JavaScript}, \textbf{CSS}, \textbf{PHP}, and \textbf{J2EE (JSP and Servlets)}.
-	\item Database: \textbf{MySQL} and \textbf{Oracle} with \textbf{Apex 4.0}.
-	\item Game Development: \textbf{Unity3d} and \textbf{JavaScript}.
-	%\item Design: \textbf{Design Patterns}, \textbf{UML Diagrams} and \textbf{OOD}.
-	\item Embedded Development: \textbf{Android} and \textbf{J2ME}.
-	\item Code versioning using \textbf{SVN} and testing with \textbf{JUnit Testing}.
-	\item Operating Systems: \textbf{Windows} XP, Vista, 7 and \textbf{Linux} Ubuntu 10.10.
-	\item IDEs: \textbf{Eclipse}, \textbf{NetBeans}, \textbf{QtCreator}, \textbf{Microsoft Visual Studio 2008}, \textbf{CodeBlocks}, and \textbf{Xilinx}.  
-	\end{itemize}       
- 
- 
-\section{ACADEMIC PROJECTS}          
-	\begin{itemize}
-	\item \textbf{Java}
-		\begin{itemize}		
-		\item \textbf{Documents Clustering with Semantics-based Similarity}: Developing a Semantic-based similarity metric for Arabic documents. The approach was then used for clustering news articles using different clustering algorithms like DBSCAN and \href{http://www.sciencedirect.com/science/article/pii/S0031320308003701}{\underline{Mitosis}}.
-		\item \textbf{Split TCP}: Implementing \href{http://www.cs.ucr.edu/~krish/splittcp.pdf}{\underline{Split TCP}} protocol for wireless ad-hoc networks to improve performance.
-		\item \textbf{Data Structures and Algorithms}: Linear lists, BST, AVL trees, Hash tables, heap, Huffman encoding and visualization for sorting algorithms.
-		\item \textbf{Queuing System}: Implementing the back-end part of customers queuing system, where the system receives the request of the customers and assign each customer to a terminal to get serviced.
-		\item \textbf{Mini OS}: Implementing the basic components of an operating system like I/O handling and processes scheduling.
-		\end{itemize}
-
-	\item \textbf{C/C++}
-		\begin{itemize}
-		\item \textbf{eVoting System} (under Linux): Implementing the principles of the \textbf{Application Layer HTTP} client/server requests using Socket connection over \textbf{TCP} and \textbf{UDP}. 
-		\item \textbf{SIC/XE Assembler} (under Windows): Prototype for assembler that produces the op-code of an assembly program.
-		\item \textbf{Concepts of Operating Systems} (under Linux): Concepts of processes, threads, and concurrent programming.
-		\end{itemize}
-		
-	\item \textbf{Mobile Development}
-		\begin{itemize}
-		\item \textbf{Remote Presenter}: An application for mobile that allow the user to control PowerPoint presentation remotely. The application was developed for \textbf{Android} platform.
-		\item \textbf{Bomber-Man}: An implementation for the Bomber-man game with \textbf{J2ME}.
-		\item \textbf{HTTP-Requests}: A \textbf{J2ME} midlet that browses documents stored at a remote server.
-		\end{itemize}
-		
-	\item \textbf{Web Development}
-		\begin{itemize}
-		\item \textbf{Shop Store} (JSP and Servlets): On-line shopping systems maintaining customers' orders and products inventories.
-		\item \textbf{College Module} (PHP): A website for TAs and students to connect.
-		\item \textbf{Service Meeting Website} (PHP): Website with \textbf{Arabic} content and data. Allowing the user to maintain the attendance to the meeting.
-		\end{itemize}
-
-	\item \textbf{MATLAB} 
-		\begin{itemize}
-		\item \textbf{Numerical methods}: Implementing algorithms for solving equations and their simulation.
-		\item \textbf{Machine Learning}: Implementing techniques and algorithms like Linear and Logistic Regression, Neural Networks, K-Means clustering, and Gaussian anomaly detection.
-		\end{itemize}
-	\end{itemize}
+%-------------------------------------------
+%%%%%%  Resume STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\end{resume}
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\Large Samer Samy Makary} & \href{mailto:samer.samy.nazzir@gmail.com}{samer.samy.nazzir@gmail.com}\\
+  \href{https://github.com/samer-makary}{https://github.com/samer-makary} & Los Angeles, CA \\
+\end{tabular*}
 
 
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Alexandria University, Faculty of Engineering}{Egypt}
+      {B.Sc. Computer and Systems Engineering GPA: 3.49 / 4.0}{Sep 2007 -- Jul 2012}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Webalo}{Los Angeles, CA -- Alexandria, Egypt}
+      {Software Engineer}{Jul 2016 - Present}
+      \resumeItemListStart
+        \resumeItem{System design and implementation}
+          {\href{https://www.webalo.com/about.php}{Webalo} provides a platform for no-code mobilization of heterogeneous enterprise data sources.\\
+          Participate in leading, design, implementation and troubleshooting of various system features.\\
+          Utilizing \textbf{Java} among other technologies.}
+        \resumeItem{Unit \& Integration Testing}
+          {Spearheaded the effort to setup and design system testing frameworks for developing integration tests.\\
+          Utilizing \textbf{TestNG} and \textbf{Mockito} for module testing and \textbf{Selenium} for end-to-end testing.\\
+          Automated system build and testing through \textbf{Jenkins}.}
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {Coptic Academy (NGO)}{Remote}
+      {Part-time Back-end Engineer}{May 2017 - Oct 2018}
+      \resumeItemListStart
+        \resumeItem{CPlanner}
+          {Maintain RESTful data-serving back-end for \href{https://play.google.com/store/apps/details?id=org.copticacademy}{Coptic Planner mobile} app. Responsibilities include REST API extension using \textbf{Spring Boot} and Hibernate, deployment to production server and bug troubleshooting/fixing. Optimization of back-end operations and SQL queries.}
+        \resumeItem{CMentor}
+          {Setup, design, and implement a POC of RESTful back-end for \href{https://play.google.com/store/apps/details?id=org.copticacademy.CopticMentor}{Coptic Mentor mobile} app using Spring Boot and Hibernate.}
+        \resumeItem{Batch Processor}
+          {Design and implement data batch-processor driven by cron jobs for consuming system data, via optimized SQL queries, and delivering custom notification in \textbf{Java} and shell scripts.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Google}{Mountain View, CA}
+      {Software Engineering Intern}{Aug 2015 - Nov 2015}
+      \resumeItemListStart
+        \resumeItem{Sandlot}
+          {As part of the G-Tech team, integrated sentiment prediction into Google's partners management tool. Responsible for the design and implementation of the new feature using \textbf{Python}
+and \textbf{AngularJS}.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Wireless Stars}{Indonesia -- Egypt}
+      {Software Engineer}{Oct 2013 - May 2015}
+      \resumeItemListStart
+        \resumeItem{ARTS}
+          {System for road traffic estimation based on user cell-phone data analytics. Building \textbf{Android} SDK for location and sensor data collection.\\
+          Assist in the developing of back-end data processing system using \textbf{Java Spring Boot} and data pipeline through Apache Camel.}
+        \resumeItem{EYE360}
+          {Augmented reality application providing bi-directional user interaction built using \textbf{Unity3D} and Qualcomm Vuforia SDK}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Alexandria University}{Alexandria, Egypt}
+      {Teaching Assistant}{Sep 2012 - Jan 2013}
+      \resumeItemListStart
+        \resumeItem{In SSP}
+          {Teaching Introduction to Databases and Numerical Analysis courses.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Innuva, IT}{Alexandria, Egypt}
+      {Game Developer Trainee}{Jul 2011 - Oct 2011}
+      \resumeItemListStart
+        \resumeItem{3D shooting game}
+          {Game design and implementation using \textbf{Unity3d} game engine. The game logic is being implemented using JavaScript for Unity3d.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------ONLINE COURSES-----------------
+\section{ONLINE COURSES}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Programming Languages}{Coursera - Washington Uni}
+    \resumeSubItem{Introduction to Functional Programming in Scala}{Coursera}
+    \resumeSubItem{Applied Cryptography}{Udacity}
+    \resumeSubItem{Introduction to Cryptography}{Coursera - Stanford}
+    \resumeSubItem{Introduction to Recommender Systems}{Coursera - Uni of Minnesota}
+    \resumeSubItem{Algorithms Design and Analysis}{Coursera - Stanford}
+    \resumeSubItem{CSMM.102x Machine Learning}{Edx - ColumbiaX}
+    \resumeSubItem{CSMM.101x Artificial Intelligence}{Edx - ColumbiaX}
+    \resumeSubItem{Introduction to AI for Robotics}{Udacity}
+    \resumeSubItem{Machine Learning}{Coursera}
+    \resumeSubItem{Coding the Matrix}{Coursera}
+    \resumeSubItem{Scalable Machine Learning}{Edx}
+
+    \vspace{5pt}
+  \resumeSubHeadingListEnd
+
+
+%--------ACADEMIC PROJECTS------------
+\section{ACADEMIC PROJECTS}
+  \resumeSubHeadingListStart
+	\item \textbf{Documents Clustering with Semantics-based Similarity} -- [Java]\\ 
+	Developing a Semantic-based similarity metric for Arabic documents. The approach was then used for clustering news articles using different clustering algorithms like DBSCAN and \href{http://www.sciencedirect.com/science/article/pii/S0031320308003701}{Mitosis}.
+	\item \textbf{Split TCP} -- [Java]\\
+	Implementing \href{http://www.cs.ucr.edu/~krish/splittcp.pdf}{Split TCP} protocol for wireless ad-hoc networks to improve performance.	
+	\item \textbf{eVoting System} -- [C++ over Linux]\\
+	Implementing the principles of the Application Layer HTTP client/server requests using Socket connection over TCP and UDP. 
+	\item \textbf{Machine Learning} -- [MATLAB]\\
+	Implementing techniques and algorithms like Linear and Logistic Regression, Neural Networks, K-Means clustering, and Gaussian anomaly detection.
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
 \end{document}
