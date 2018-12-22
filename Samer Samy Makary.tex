@@ -15,10 +15,11 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
+\usepackage[stable]{footmisc}
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
-\fancyfoot{}
+\rfoot{\textit{\tiny Last updated on {\the\month}  / {\the\year}}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -91,19 +92,14 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\Large Samer Samy Makary} & \href{mailto:samer.samy.nazzir@gmail.com}{samer.samy.nazzir@gmail.com}\\
+  \textbf{\Large Samer Makary} & \href{mailto:samer.samy.nazzir@gmail.com}{samer.samy.nazzir@gmail.com}\\
   \href{https://github.com/samer-makary}{https://github.com/samer-makary} & Los Angeles, CA \\
 \end{tabular*}
 
 
-%-----------EDUCATION-----------------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Alexandria University, Faculty of Engineering}{Egypt}
-      {B.Sc. Computer and Systems Engineering GPA: 3.49 / 4.0}{Sep 2007 -- Jul 2012}
-  \resumeSubHeadingListEnd
-
+%-----------PROFESSIONAL PROFILE-----------------
+\section{Professional Profile}
+Software engineer with demonstrated expertise in location-based, data-mobilization, and back-end systems development utilizing various frameworks and technologies.
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
@@ -113,11 +109,11 @@
       {Webalo}{Los Angeles, CA -- Alexandria, Egypt}
       {Software Engineer}{Jul 2016 - Present}
       \resumeItemListStart
-        \resumeItem{System design and implementation}
+        \resumeItem{Feature development}
           {\href{https://www.webalo.com/about.php}{Webalo} provides a platform for no-code mobilization of heterogeneous enterprise data sources.\\
           Participate in leading, design, implementation and troubleshooting of various system features.\\
           Utilizing \textbf{Java} among other technologies.}
-        \resumeItem{Unit \& Integration Testing}
+        \resumeItem{Unit \& integration testing}
           {Spearheaded the effort to setup and design system testing frameworks for developing integration tests.\\
           Utilizing \textbf{TestNG} and \textbf{Mockito} for module testing and \textbf{Selenium} for end-to-end testing.\\
           Automated system build and testing through \textbf{Jenkins}.}
@@ -130,8 +126,8 @@
         \resumeItem{CPlanner}
           {Maintain RESTful data-serving back-end for \href{https://play.google.com/store/apps/details?id=org.copticacademy}{Coptic Planner mobile} app. Responsibilities include REST API extension using \textbf{Spring Boot} and Hibernate, deployment to production server and bug troubleshooting/fixing. Optimization of back-end operations and SQL queries.}
         \resumeItem{CMentor}
-          {Setup, design, and implement a POC of RESTful back-end for \href{https://play.google.com/store/apps/details?id=org.copticacademy.CopticMentor}{Coptic Mentor mobile} app using Spring Boot and Hibernate.}
-        \resumeItem{Batch Processor}
+          {Setup, design, and implement RESTful back-end for \href{https://play.google.com/store/apps/details?id=org.copticacademy.CopticMentor}{Coptic Mentor mobile} app using \textbf{Spring Boot} and Hibernate.}
+        \resumeItem{Batch-processor}
           {Design and implement data batch-processor driven by cron jobs for consuming system data, via optimized SQL queries, and delivering custom notification in \textbf{Java} and shell scripts.}
       \resumeItemListEnd
 
@@ -150,7 +146,10 @@ and \textbf{AngularJS}.}
       \resumeItemListStart
         \resumeItem{ARTS}
           {System for road traffic estimation based on user cell-phone data analytics. Building \textbf{Android} SDK for location and sensor data collection.\\
-          Assist in the developing of back-end data processing system using \textbf{Java Spring Boot} and data pipeline through Apache Camel.}
+          Collaborating with research team on developing production ready algorithms and modules for data processing back-end system using \textbf{Java Spring Boot} and data pipeline through Apache Camel.\\
+          Responsible for implementation and testing of \textbf{Kalman-filter} user speed estimator.\\
+          Utilizing \href{https://postgis.net/}{PostGIS} to implement spatial queries consumed by various modules of the system.\\
+          Implement \textbf{Android} app that uses traffic SDK to push data to the back-end and query the system to estimated traffic state. The application was used by business team for demo/presentation and by the research team for system evaluation.}
         \resumeItem{EYE360}
           {Augmented reality application providing bi-directional user interaction built using \textbf{Unity3D} and Qualcomm Vuforia SDK}
       \resumeItemListEnd
@@ -159,7 +158,7 @@ and \textbf{AngularJS}.}
       {Alexandria University}{Alexandria, Egypt}
       {Teaching Assistant}{Sep 2012 - Jan 2013}
       \resumeItemListStart
-        \resumeItem{In SSP}
+        \resumeItem{In Special Scientific Program (SSP)}
           {Teaching Introduction to Databases and Numerical Analysis courses.}
       \resumeItemListEnd
 
@@ -174,8 +173,34 @@ and \textbf{AngularJS}.}
   \resumeSubHeadingListEnd
 
 
-%-----------ONLINE COURSES-----------------
-\section{ONLINE COURSES}
+\pagebreak
+
+
+%-----------TOOLS & FRAMEWORKS-----------------
+\section{Tools \& Frameworks \footnotemark}
+  \footnotetext{Technologies are listed in decreasing order of experience.}
+
+  \resumeSubHeadingListStart
+    \resumeSubItem{Languages}{Java -- Python -- SQL -- JavaScript}
+    \resumeSubItem{Frameworks}{Spring Boot -- Jenkins -- Unity3D -- AngularJS (1 \& 2) -- Android}
+    \resumeSubItem{Testing}{TestNG -- Selenium -- Mockito/PowerMock -- Jasmine/Karma}
+
+    \vspace{5pt}
+  \resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Alexandria University, Faculty of Engineering}{Egypt}
+      {B.Sc. Computer and Systems Engineering GPA: 3.49 / 4.0}{Sep 2007 -- Jul 2012}
+  \resumeSubHeadingListEnd
+  
+  
+%-----------CONTINUOUS EDUCATION-----------------
+\section{Continuous Education \footnotemark}
+  \footnotetext{Certificates are available upon request.}
   \resumeSubHeadingListStart
     \resumeSubItem{Programming Languages}{Coursera - Washington Uni}
     \resumeSubItem{Introduction to Functional Programming in Scala}{Coursera}
@@ -195,17 +220,17 @@ and \textbf{AngularJS}.}
 
 
 %--------ACADEMIC PROJECTS------------
-\section{ACADEMIC PROJECTS}
-  \resumeSubHeadingListStart
-	\item \textbf{Documents Clustering with Semantics-based Similarity} -- [Java]\\ 
-	Developing a Semantic-based similarity metric for Arabic documents. The approach was then used for clustering news articles using different clustering algorithms like DBSCAN and \href{http://www.sciencedirect.com/science/article/pii/S0031320308003701}{Mitosis}.
-	\item \textbf{Split TCP} -- [Java]\\
-	Implementing \href{http://www.cs.ucr.edu/~krish/splittcp.pdf}{Split TCP} protocol for wireless ad-hoc networks to improve performance.	
-	\item \textbf{eVoting System} -- [C++ over Linux]\\
-	Implementing the principles of the Application Layer HTTP client/server requests using Socket connection over TCP and UDP. 
-	\item \textbf{Machine Learning} -- [MATLAB]\\
-	Implementing techniques and algorithms like Linear and Logistic Regression, Neural Networks, K-Means clustering, and Gaussian anomaly detection.
-  \resumeSubHeadingListEnd
+%\section{Academic Projects}
+%  \resumeSubHeadingListStart
+%	\item \textbf{Documents Clustering with Semantics-based Similarity} -- [Java]\\ 
+%	Developing a Semantic-based similarity metric for Arabic documents. The approach was then used for clustering news articles using different clustering algorithms like DBSCAN and \href{http://www.sciencedirect.com/science/article/pii/S0031320308003701}{Mitosis}.
+%	\item \textbf{Split TCP} -- [Java]\\
+%	Implementing \href{http://www.cs.ucr.edu/~krish/splittcp.pdf}{Split TCP} protocol for wireless ad-hoc networks to improve performance.	
+%	\item \textbf{eVoting System} -- [C++ over Linux]\\
+%	Implementing the principles of the Application Layer HTTP client/server requests using Socket connection over TCP and UDP. 
+%	\item \textbf{Machine Learning} -- [MATLAB]\\
+%	Implementing techniques and algorithms like Linear and Logistic Regression, Neural Networks, K-Means clustering, and Gaussian anomaly detection.
+%  \resumeSubHeadingListEnd
 
 
 %-------------------------------------------
