@@ -19,7 +19,8 @@
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
-\rfoot{\textit{\tiny Last updated on {\the\month}  / {\the\year}}}
+\cfoot{\textit{\small Page \thepage \hspace{1pt} of 3}}
+\rfoot{\textit{\small Last updated on {\the\month}  / {\the\year}}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -93,107 +94,132 @@
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\Large Samer Makary} & \href{mailto:samer.samy.nazzir@gmail.com}{samer.samy.nazzir@gmail.com}\\
-  \href{https://github.com/samer-makary}{https://github.com/samer-makary} & Toronto, Canada \\
+  \href{https://github.com/samer-makary}{https://github.com/samer-makary} & Atlanta, USA\\
 \end{tabular*}
 
 
 %-----------PROFESSIONAL PROFILE-----------------
 \section{Professional Profile}
-Software engineer with demonstrated expertise in location-based, data-mobilization, and back-end systems development utilizing various frameworks and technologies.
+Full-stack Software Engineer with more than 10 years of experience building API/Client-first services development.\\
+My expertise spans multiple domains including music/audio broadcast, low-latency (high-throughput) distributed systems, real-time ad-delivery services, location-based and data-mobilization software solutions.
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Amazon.com, Inc.}{Toronto, Canada}
-      {Software Development Engineer}{Jan 2020 - Present}
+      {Amazon.com, Inc.}{Jan 2020 - Present}
+      {Software Development Engineer II}{}
       \resumeItemListStart
-        \resumeItem{Fenix}
-          {\href{https://en.wikipedia.org/wiki/Amazon_(company)}{Amazon} is an online retail platform that provides several services.\\
-          Participate in implementation, monitoring, and troubleshooting/bug-fixing of several components of Amazon's Sponsored Products Ad-serving service.
+		\resumeItem{Amp}
+          {Amazon Music's \href{https://www.onamp.com/about}{Amp} in an infinite-dial digital radio broadcast mobile application. Amp allows create a show, go live, play music, and take in call-in guests all with simple flow and within minutes.\\
+          -- Led a team of engineers to deliver the first public version of the Creator Studio iOS app implemented using \textbf{Swift} and AWS AppSync \textbf{GraphQL} entirely from the grounds-up.\\
+          -- Single-handedly implemented crash-recovery of the entire Creator Studio app state; this involved revamping some modules in the app and extending multiple back-end APIs in order for the app to restore any in-memory state and reconnect to live-broadcast.}          
+		\resumeItem{FenixSPService}
+          {Core orchestration engine the serves \href{https://advertising.amazon.com/solutions/products/sponsored-products}{Sponsored-Products Ads} on Amazon.com retail website and mobile app worldwide. Fenix is a high-throughput low-latency real-time distributed service which delivers curated ads per user Amazon.com pages and apps.\\
+          -- Participate in new-feature design and implementation, monitoring, and troubleshooting/bug-fixing of several service components.
           Utilizing \textbf{Java} and \textbf{Spring MVC}.}
-      \resumeItemListEnd
+        \resumeItem{Migration to Public AWS (NAWS)}
+          {Delivered the very first proof-of-concept demonstrating our ability to boot up \texttt{FenixSPService} on the public/native offering of AWS ecosystem.\\
+          -- Identified +20 technical blockers, led a team of engineers to develop simple workaround solutions, and eventually provided a risk-mitigation path for the actual migration and deployment of the service.\\
+          -- Launching \texttt{FenixSPService} on Native AWS was later featured in \href{https://youtu.be/BS4MPpEO66I?t=1067}{AWS re:Invent 2021 - Under the hood at Amazon Ads}.}
+        \resumeItem{DevOps and OnCall}
+          {Participate in on-call and deployment shepherd rotations. Improve pipelines and monitoring to implement best practices of CI/CD. Plan and execute fleet scaling and descaling for high velocity events. Troubleshoot mobile app crashes and profile back-end services for improvements.}
+	\resumeItemListEnd
 
     \resumeSubheading
-      {Webalo, Inc.}{Los Angeles, USA -- Alexandria, Egypt}
-      {Software Engineer}{Jul 2016 - Jan 2020}
+      {Webalo, Inc.}{Jul 2016 - Dec 2019}
+      {Software Engineer}{}
       \resumeItemListStart
         \resumeItem{HTML Toolkit}
-          {\href{https://www.webalo.com/about.php}{Webalo} provides a platform for no-code mobilization of heterogeneous enterprise data sources.\\
-          Participate in design and architecture specification of a new HTML-based platform-agnostic UI widget rendering toolkit.\\
-          Led a team of engineers to develop and migrate Webalo's User Agent applications to the new toolkit and retire the Java Canvas-based toolkit.
-          Utilizing \textbf{Java}, \textbf{Angular}, and \textbf{Bootstrap}.}
+          {Designed the architecture for a new HTML-based platform-agnostic UI widget rendering toolkit.\\
+          -- Led a team of engineers to develop and migrate \href{https://www.webalo.com/platform.php}{Webalo}'s User Agent applications to the new toolkit and retire the Java Canvas-based toolkit.
+          Utilizing TypeScript and Web Components in \textbf{Angular 7}, \textbf{Bootstrap}, and JavaScript/CSS.}
+        \resumeItem{CI/CD}
+          {Automated system build, execution of integration and end-to-end tests, and binaries distribution through using Git Hooks, \textbf{Jenkins}, and Shell scripting.}
+        \resumeItem{Client Services}
+        	  {Troubleshoot and verify client licensing and on-premises data encryption at rest.}
         \resumeItem{Unit \& Integration testing}
-          {Spearhead the effort to setup and design system testing framework for developing integration tests.\\
-          Utilizing \textbf{TestNG} and \textbf{Mockito} for module testing and \textbf{Selenium} for end-to-end testing.\\
-          Automate system build and testing through \textbf{Jenkins}.}
-      \resumeItemListEnd
-      
-    \resumeSubheading
-      {Coptic Academy, NGO}{Remote}
-      {Part-time Back-end Engineer}{May 2017 - Oct 2018}
-      \resumeItemListStart
-        \resumeItem{CPlanner}
-          {Maintain RESTful data-serving back-end for \href{https://play.google.com/store/apps/details?id=org.copticacademy}{Coptic Planner mobile} app. Responsibilities include REST API extension using \textbf{Spring Boot} and Hibernate, deployment to production server and bug troubleshooting/fixing. Optimization of back-end operations and SQL queries.}
-        \resumeItem{CMentor}
-          {Setup, design, and implement RESTful back-end for \href{https://play.google.com/store/apps/details?id=org.copticacademy.CopticMentor}{Coptic Mentor mobile} app using \textbf{Spring Boot} and Hibernate.}
-        \resumeItem{Batch-processor}
-          {Design and implement data batch-processor driven by cron jobs for consuming system data, via optimized SQL queries, and delivering custom notification in \textbf{Java} and shell scripts.}
+          {Spearheaded the effort to set up and design system testing framework for developing integration tests.\\
+          -- Utilizing \textbf{TestNG} and \textbf{Mockito} for module testing and \textbf{Selenium} for end-to-end testing.}
       \resumeItemListEnd
 
     \resumeSubheading
-      {Google, Inc.}{Mountain View, CA}
-      {Software Engineering Intern}{Aug 2015 - Nov 2015}
+      {Google, Inc.}{Aug 2015 - Nov 2015}
+      {Software Engineering Intern}{}
       \resumeItemListStart
         \resumeItem{Sandlot}
-          {As part of the G-Tech team, integrated sentiment prediction into Google's partners management tool. Responsible for the design and implementation of the new feature using \textbf{Python}
-and \textbf{AngularJS}.}
+          {As part of the \href{https://careersonair.withgoogle.com/events/insidegtech}{G-Tech team}, integrated sentiment prediction into Google's partners management tool. Responsible for the design and implementation of the new feature using \textbf{Python} and \textbf{AngularJS}.}
       \resumeItemListEnd
-
-    \resumeSubheading
-      {Wireless Stars, LLC}{Indonesia -- Egypt}
-      {Software Engineer}{Oct 2013 - May 2015}
-      \resumeItemListStart
-        \resumeItem{ARTS}
-          {System for road traffic estimation based on user cell-phone data analytics. Building \textbf{Android} SDK for location and sensor data collection.\\
-          Collaborating with research team on developing production ready algorithms and modules for data processing back-end system using \textbf{Java Spring Boot} and data pipeline through Apache Camel.\\
-          Responsible for implementation and testing of \textbf{Kalman-filter} user speed estimator.\\
-          Utilizing \href{https://postgis.net/}{PostGIS} to implement spatial queries consumed by various modules of the system.\\
-          Implement \textbf{Android} app that uses traffic SDK to push data to the back-end and query the system to estimated traffic state. The application was used by business team for demo/presentation and by the research team for system evaluation.}
-        \resumeItem{EYE360}
-          {Augmented reality application providing bi-directional user interaction built using \textbf{Unity3D} and Qualcomm Vuforia SDK}
-      \resumeItemListEnd
-
+      
 \pagebreak
 
     \resumeSubheading
-      {Alexandria University}{Alexandria, Egypt}
-      {Teaching Assistant}{Sep 2012 - Jan 2013}
+      {Wireless Stars, LLC}{Oct 2013 - May 2015}
+      {Software Engineer}{}
+      \resumeItemListStart
+        \resumeItem{ARTS}
+          {System for road traffic estimation based on user cell-phone data analytics. Building \textbf{Android} SDK for location and sensor data collection.\\
+          Collaborating with research team on developing production ready algorithms and modules for data processing back-end system using \textbf{Spring Boot} and data pipeline through Apache Camel.\\
+          Responsible for implementation and testing of \textbf{Kalman-filter} user speed estimator.\\
+          Utilized \href{https://postgis.net/}{PostGIS} to implement spatial queries consumed by various modules of the system.\\
+          Implemented \textbf{Android} app that uses traffic SDK to push data to the back-end and query the system for estimated traffic state. The application was used by business team for demo/presentation and by the research team for system evaluation.}
+        \resumeItem{EYE360}
+          {Augmented reality application providing bi-directional user interaction built using \textbf{Unity3D} and Qualcomm \textbf{Vuforia} SDK}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {B-Yond}{}
+      {Consultant Engineer}{}
+      \resumeItemListStart
+		\resumeItem{National ID Segmentation}
+          {Designed and implemented customer license management in \textbf{Python using JWT}, obfuscation, and elliptic curve cryptography.\\
+          Designed run-time transaction management using symmetric key cryptography.\\
+          Advised ML and junior engineers on deployment strategies and post deployment monitoring, support, and CI/CD.}
+	\resumeItemListEnd	
+      
+    \resumeSubheading
+      {Coptic Academy, NGO}{}
+      {Part-time Back-end Engineer}{}
+      \resumeItemListStart
+        \resumeItem{R\&D}
+          {Evaluated the use of technologies like HashiCorp and JWT for implementing client/service secured communications.}
+        \resumeItem{CPlanner}
+          {Maintained RESTful data-serving back-end for \href{https://play.google.com/store/apps/details?id=org.copticacademy}{Coptic Planner mobile} app. Responsibilities include REST API extension using \textbf{Spring Boot} and Hibernate, deployment to production server and bug troubleshooting/fixing. Optimization of back-end operations and SQL queries.}
+        \resumeItem{CMentor}
+          {Set up, designed, and implemented RESTful back-end for \href{https://play.google.com/store/apps/details?id=org.copticacademy.CopticMentor}{Coptic Mentor mobile} app using Spring Boot and \textbf{Hibernate}.}
+        \resumeItem{Batch-processor}
+          {Designed and implemented data batch-processor driven by cron jobs for consuming system data, via optimized SQL queries, and delivering custom notification in \textbf{Java} and \textbf{shell scripts}.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Alexandria University}{Sep 2012 - Jan 2013}
+      {Teaching Assistant}{}
       \resumeItemListStart
         \resumeItem{In Special Scientific Program (SSP)}
           {Teaching Introduction to Databases and Numerical Analysis courses.}
       \resumeItemListEnd
 
     \resumeSubheading
-      {Innuva, IT}{Alexandria, Egypt}
-      {Game Developer Trainee}{Jul 2011 - Oct 2011}
+      {Innuva, IT}{Jul 2011 - Oct 2011}
+      {Game Developer Trainee}{}
       \resumeItemListStart
         \resumeItem{3D shooting game}
-          {Game design and implementation using \textbf{Unity3d} game engine. The game logic is being implemented using JavaScript for Unity3d.}
+          {Game design and implementation using \textbf{Unity3D} game engine. The game logic is being implemented using JavaScript for Unity3D.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
-
+      
+\pagebreak
 
 %-----------TOOLS & FRAMEWORKS-----------------
 \section{Tools \& Frameworks \footnotemark}
   \footnotetext{Technologies are listed in decreasing order of experience.}
 
   \resumeSubHeadingListStart
-    \resumeSubItem{Languages}{Java -- Python -- TypeScript -- SQL}
-    \resumeSubItem{Frameworks}{Spring MVC/Boot -- Angular 7 -- Jenkins -- Unity3D -- AngularJS (1 \& 2) -- Android}
-    \resumeSubItem{Testing}{TestNG -- Selenium -- Mockito/PowerMock -- Jasmine/Karma}
+    \resumeSubItem{Languages}{Java -- Swift -- Python -- TypeScript -- HTML/JavaScript/CSS -- SQL}
+    \resumeSubItem{Frameworks}{iOS -- ReactNative -- Spring MVC/Boot -- Bootstrap -- Angular 7 -- Unity3D -- Android}
+    \resumeSubItem{CI/CD}{CDK-- Jenkins -- TestNG -- Selenium -- Mockito/PowerMock -- Jasmine/Karma}
 
     \vspace{5pt}
   \resumeSubHeadingListEnd
@@ -203,15 +229,18 @@ and \textbf{AngularJS}.}
 \section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {Alexandria University, Faculty of Engineering}{Egypt}
-      {B.Sc. Computer and Systems Engineering GPA: 3.49 / 4.0}{Sep 2007 -- Jul 2012}
+      {Alexandria University, Faculty of Engineering}{Sep 2007 -- Jul 2012}
+      {B.Sc. Computer and Systems Engineering}{}
   \resumeSubHeadingListEnd
   
   
 %-----------CONTINUOUS EDUCATION-----------------
 \section{Continuous Education \footnotemark}
   \footnotetext{Certificates are available upon request.}
-  \resumeSubHeadingListStart
+   \resumeSubHeadingListStart
+	\resumeSubItem{Architecture and Developing on AWS}{AWS Hands-on Training}
+	\resumeSubItem{DevOps on AWS}{AWS Hands-on Training}
+	\resumeSubItem{Security Engineering on AWS}{AWS Hands-on Training}
     \resumeSubItem{Programming Languages}{Coursera - Washington Uni}
     \resumeSubItem{Introduction to Functional Programming in Scala}{Coursera}
     \resumeSubItem{Applied Cryptography}{Udacity}
