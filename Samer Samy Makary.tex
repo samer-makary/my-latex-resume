@@ -101,7 +101,7 @@
 %-----------PROFESSIONAL PROFILE-----------------
 \section{Professional Profile}
 Full-stack Software Engineer with more than 10 years of experience building API/Client-first services development.\\
-My expertise spans multiple domains including music/audio broadcast, low-latency (high-throughput) distributed systems, real-time ad-delivery services, location-based and data-mobilization software solutions.
+In-depth experience in multiple domains, including music/audio broadcast, low-latency (high-throughput) distributed systems and caches, real-time ad-delivery services, and location-based and data-mobilization software solutions.
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
@@ -111,20 +111,22 @@ My expertise spans multiple domains including music/audio broadcast, low-latency
       {Amazon.com, Inc.}{Jan 2020 - Present}
       {Software Development Engineer II}{}
       \resumeItemListStart
+		\resumeItem{Ads Filtering \& Eligibility Services}
+          {Designed a globally-accessible Ad Eligibility API handling hundreds of transactions per second using API Gateway, Lambda, and \textbf{DynamoDB GlobalTables}, delivering cross-regional distributed solution. \\
+          -- Developing next generation Ads Filtering service using various technologies such as AWS ECS and SQS.}
 		\resumeItem{Amp}
-          {Amazon Music's \href{https://www.onamp.com/about}{Amp} in an infinite-dial digital radio broadcast mobile application. Amp allows create a show, go live, play music, and take in call-in guests all with simple flow and within minutes.\\
-          -- Led a team of engineers to deliver the first public version of the Creator Studio iOS app implemented using \textbf{Swift} and AWS AppSync \textbf{GraphQL} entirely from the grounds-up.\\
-          -- Single-handedly implemented crash-recovery of the entire Creator Studio app state; this involved revamping some modules in the app and extending multiple back-end APIs in order for the app to restore any in-memory state and reconnect to live-broadcast.}          
+          {Amazon Music's \href{https://techcrunch.com/2022/03/08/amazon-launches-a-live-radio-app-amp-which-lets-you-play-dj-with-the-amazon-music-catalog/}{Amp} in an infinite-dial digital radio broadcast mobile application. Amp allows users to create a show, go live, play music, and take in call-in guests all with simple flow and within minutes.\\
+          -- Lead engineer developing Amp Android app and migrating Amp iOS app to hybrid \textbf{ReactNative}-based architecture with native core components in both \textbf{iOS Swift} and \textbf{Android Kotlin}.\\
+          -- Team leader of Call-in experience full-stack development maintaining iOS/Swift client and backend system using AWS Lambda, Chime APIs, and \textbf{Elastic-Containers on Fargate} microservices.\\
+          -- Led a team of engineers to deliver the first public version of the Creator Studio iOS app implemented using \textbf{Swift} and AWS AppSync \textbf{GraphQL} entirely from the grounds-up.}          
 		\resumeItem{FenixSPService}
-          {Core orchestration engine the serves \href{https://advertising.amazon.com/solutions/products/sponsored-products}{Sponsored-Products Ads} on Amazon.com retail website and mobile app worldwide. Fenix is a high-throughput low-latency real-time distributed service which delivers curated ads per user Amazon.com pages and apps.\\
-          -- Participate in new-feature design and implementation, monitoring, and troubleshooting/bug-fixing of several service components.
-          Utilizing \textbf{Java} and \textbf{Spring MVC}.}
-        \resumeItem{Migration to Public AWS (NAWS)}
-          {Delivered the very first proof-of-concept demonstrating our ability to boot up \texttt{FenixSPService} on the public/native offering of AWS ecosystem.\\
-          -- Identified +20 technical blockers, led a team of engineers to develop simple workaround solutions, and eventually provided a risk-mitigation path for the actual migration and deployment of the service.\\
+          {Core orchestration engine that serves \href{https://advertising.amazon.com/solutions/products/sponsored-products}{Sponsored-Products Ads} on Amazon.com retail website and mobile app worldwide. Fenix is a high-throughput low-latency real-time distributed service that delivers curated ads per user on Amazon.com pages and apps. Utilizing \textbf{Java} and \textbf{Spring MVC}.}
+        \resumeItem{FenixSPService on Native AWS (NAWS)}
+          {Delivered the first proof-of-concept demonstrating the ability to boot up \texttt{FenixSPService} on the public/native offering of AWS ecosystem.\\
+          -- Identified +20 technical blockers, led team of engineers to develop simple workaround solutions, and eventually provided a risk-mitigation path for the actual migration and deployment of the service.\\
           -- Launching \texttt{FenixSPService} on Native AWS was later featured in \href{https://youtu.be/BS4MPpEO66I?t=1067}{AWS re:Invent 2021 - Under the hood at Amazon Ads}.}
         \resumeItem{DevOps and OnCall}
-          {Participate in on-call and deployment shepherd rotations. Improve pipelines and monitoring to implement best practices of CI/CD. Plan and execute fleet scaling and descaling for high velocity events. Troubleshoot mobile app crashes and profile back-end services for improvements.}
+          {Participate in on-call and deployment shepherd rotations. Improve pipelines and monitoring to implement best practices of CI/CD.}
 	\resumeItemListEnd
 
     \resumeSubheading
@@ -137,8 +139,6 @@ My expertise spans multiple domains including music/audio broadcast, low-latency
           Utilizing TypeScript and Web Components in \textbf{Angular 7}, \textbf{Bootstrap}, and JavaScript/CSS.}
         \resumeItem{CI/CD}
           {Automated system build, execution of integration and end-to-end tests, and binaries distribution through using Git Hooks, \textbf{Jenkins}, and Shell scripting.}
-        \resumeItem{Client Services}
-        	  {Troubleshoot and verify client licensing and on-premises data encryption at rest.}
         \resumeItem{Unit \& Integration testing}
           {Spearheaded the effort to set up and design system testing framework for developing integration tests.\\
           -- Utilizing \textbf{TestNG} and \textbf{Mockito} for module testing and \textbf{Selenium} for end-to-end testing.}
