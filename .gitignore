@@ -1,8 +1,10 @@
 # Ignore compiled resume output files, except for the main file.
 *.pdf
+!Contd Education Certificates/*.pdf
 !Samer Samy Makary.pdf
 *.ps
 # *.eps
+.DS_Store
 
 # Created by https://www.gitignore.io/api/tex,latex
 
