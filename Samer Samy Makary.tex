@@ -16,10 +16,13 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage[stable]{footmisc}
+\usepackage{lastpage}
+\usepackage{multicol}
+\renewcommand{\footnoterule}{\kern -3pt \hrule width \textwidth \kern 2.6pt} % full-width footnote rule
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
-\cfoot{\textit{\small Page \thepage \hspace{1pt} of 2}}
+\cfoot{\textit{\small Page \thepage \hspace{1pt} of \pageref*{LastPage}}}
 \rfoot{\textit{\small Last updated on {\the\month}  / {\the\year}}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -46,7 +49,7 @@
 % Custom commands
 \newcommand{\resumeItem}[2]{
   \item\small{
-    \textbf{#1}{: #2 \vspace{-2pt}}
+    \textbf{#1}{: #2\vspace{-2pt}}
   }
 }
 
@@ -59,6 +62,8 @@
 }
 
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+% Same look as \resumeSubItem, but the spacing is applied after the paragraph ends; inside multicols the in-line form leaves blank lines after full-width items.
+\newcommand{\resumeColItem}[2]{\item\small{\textbf{#1}{: #2}}\par\vspace{-6pt}}
 
 \renewcommand{\labelitemii}{$\circ$}
 
@@ -94,14 +99,15 @@
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\Large Samer Makary} & \href{mailto:samer.samy.nazzir@gmail.com}{samer.samy.nazzir@gmail.com}\\
-  \href{https://github.com/samer-makary}{https://github.com/samer-makary} & Atlanta, USA\\
+  \href{https://github.com/samer-makary}{https://github.com/samer-makary} & Seattle, WA\\
 \end{tabular*}
 
 
 %-----------PROFESSIONAL PROFILE-----------------
 \section{Professional Profile}
-Senior Software Engineer with more than 10 years of experience in advanced computing technologies and full-stack tech-solutions development.\\
-Proven experience in real-time ad-delivery systems, distributed data-store systems, live music/audio broadcast applications, and location-based \& data-mobilization software solutions.
+Senior Software Engineer with 14+ years of experience in advanced computing technologies and full-stack tech-solutions development.\\
+Proven experience in real-time ad-serving systems, globally replicated distributed data-store systems, live music/audio broadcast applications, and location-based \& data-mobilization software solutions.\\
+Currently tech lead of the core filtering services of \href{https://advertising.amazon.com/}{Amazon Ads}' next-generation e-commerce retail ad server; leads designs spanning nine-plus teams and launches that roll out worldwide.
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
@@ -109,22 +115,48 @@ Proven experience in real-time ad-delivery systems, distributed data-store syste
 
     \resumeSubheading
       {Amazon.com, Inc.}{Jan 2020 - Present}
-      {Software Development Engineer II}{}
+      {Senior Software Development Engineer (L6)}{SDE II, Jan 2020 - Sep 2025}
       \resumeItemListStart
-		\resumeItem{Ads Filtering \& Eligibility Services}
-          {Designed a globally-accessible Ad Eligibility API that handles hundreds of transactions per second, utilizing API Gateway, Lambda, and DynamoDB GlobalTables to deliver a cross-regional distributed solution. \\
-          -- Developing next generation Ads Filtering service using various technologies such as AWS ECS and SQS.}
+		\resumeItem{Next-Generation Ad Server}
+          {The core ad-delivery engine of Amazon Ads' next-generation e-commerce ad server, serving \href{https://advertising.amazon.com/solutions/products/sponsored-products}{Sponsored Products and Brands} across Amazon retail and third-party supply, which lets merchants and sellers promote featured placements of their products. On every shopper request it decides, within a \textbf{200 ms p99} latency budget, which candidate ads may be shown, applying advertiser targeting, the shopper's search filters (brand, price, delivery speed), compliance, and budget rules. Built on AWS ECS with a \textbf{terabyte-scale} distributed ElastiCache.\\
+          -- \textbf{Tech lead}, leading 2--5 engineers and acting as design-review and operational gatekeeper for the service.\\
+          -- \textbf{Sole-authored the design} for enforcing shopper search filters natively in the new ad server, aligned \textbf{four organizations} behind it, and shipped the resulting filter chain now serving Search, Product Detail Page, Browse, and Agentic Browse.\\
+          -- Led the migration of product detail-page ad filtering off the incumbent ad-serving engine, Fenix, with placement-by-placement verification that the new service matched the old.\\
+          -- Led the design and, with the team, built a rules-driven engine for the business rules of themed ad widgets, now live on product detail, cart, and checkout pages.\\
+          -- Owned production reliability and readiness: traffic-invariant alarms, availability-zone-aligned caches, fail-closed health checks, and a \textbf{3x} capacity increase for the busiest cell; led the region-by-region recovery from a production incident caused by a network-configuration change.}
+		\resumeItem{Ads on Filtered Search Results}
+          {Shoppers narrow search results with filters such as brand, price, or delivery speed; Sponsored Products had been serving those result pages without ads. Cross-organization program between Sponsored Ads and Retail Search, which owns search across Amazon's retail catalog, to close that gap.\\
+          -- Owned the joint goal; prototyped the integration with the Retail Search interface and load-tested it at production request rates.\\
+          -- Designed and led the auction-stage integration experiment across the ad-serving, auction, and Search teams, then rolled it out worldwide: \textbf{+0.3\% Sponsored Products revenue, about \$88MM projected annual}, from roughly \textbf{60K net-new ad clicks per day}.\\
+          -- Made new search filters supportable \textbf{on launch day instead of after 12+ weeks} of bespoke engineering each.\\
+          -- Delivered the Brand filter (\textbf{+0.4\%, about \$6.3MM projected annual}) after root-causing a thread-safety defect in Fenix's filtering framework.\\
+          -- Drove the Prime same-day-delivery filter through staged rollout to \textbf{all US traffic and 22 countries}: \textbf{about \$22.4MM projected annual revenue}, with filter latency cut from \textbf{2 ms to 1 ms}.\\
+          -- When a tail-latency regression threatened a rollback, proved through a multi-week A/B analysis that it was confined to a small slice of traffic and won an organization-level exemption.\\
+          -- Presented the approach at the ad-server all-hands; since then act as the \textbf{standing technical authority}, consulted by \textbf{four partner teams} on their own filter launches.}
+		\pagebreak
+		\resumeItem{Global Ad Campaigns}
+          {Led the cross-team design (\textbf{nine-plus teams}, two Principal Engineers, a Principal TPM) that enabled global ad campaigns, one campaign serving across countries, for \textbf{1.08M+ advertisers}, by making campaign-eligibility decisions available across regions with no latency regression.\\
+          -- Designed the cross-region path: a connectivity layer plus a reactive cache on DynamoDB Global Tables, sized from 48M+ requests and 200 GB of production logs across three regions.\\
+          -- The cache reached a \textbf{54--62\% hit rate} at a one-day TTL and cut cross-region latency by \textbf{about 90 ms}.\\
+          -- Revived the load-testing framework and wrote the runbooks the team still uses for launch readiness; unblocked five upstream services and the Sponsored Products global-campaigns launch.}
 		\resumeItem{Amazon Music Amp}
           {\href{https://techcrunch.com/2022/03/08/amazon-launches-a-live-radio-app-amp-which-lets-you-play-dj-with-the-amazon-music-catalog/}{Amp} is an infinite-dial digital radio broadcast mobile application. Amp allows users to create a show, go live, play music, and take in call-in guests all with simple flow and within minutes.\\
           -- Lead engineer developing Amp Android app and migrating Amp iOS app to hybrid ReactNative-based architecture with native core components in both iOS Swift and Android Kotlin.\\
           -- Team leader of Creator Studio \& Call-in experience full-stack development maintaining iOS/Swift client and backend system using AWS Lambda, Chime APIs, Elastic-Containers on Fargate microservices, and AWS AppSync GraphQL.\\
-          -- Led group of engineers to develop iOS Bluetooth/audio solution which was filed as \textbf{Patent} \texttt{P78152 - SWITCHING WIRELESS PROFILES IN RESPONSE TO TRIGGER EVENTS}.}          
+          -- Led two engineers and a cross-organization effort with the AWS Chime team to develop the iOS Bluetooth/audio solution that lets creators talk over music on live broadcasts within music-licensing rules; filed as a \textbf{US patent application}, \texttt{SWITCHING WIRELESS PROFILES IN RESPONSE TO TRIGGER EVENTS}.}          
 		\resumeItem{Ads Serving Core Engine}
-          {\texttt{FenixSPService} is orchestration engine that serves \href{https://advertising.amazon.com/solutions/products/sponsored-products}{Sponsored-Products Ads} on Amazon.com retail website and mobile app worldwide. FenixSPService is a high-throughput low-latency real-time distributed service that delivers curated ads per user.\\
-          -- Worked on migration to Native AWS (NAWS) delivering the first proof-of-concept of \texttt{FenixSPService} on the public/native offering of AWS ecosystem.\\
-          -- Identified +20 technical blockers, led team of engineers to develop simple workaround solutions, and eventually provided a risk-mitigation path for full migration and launch of the service.\\
-          -- Launching \texttt{FenixSPService} on Native AWS was later featured in \href{https://youtu.be/BS4MPpEO66I?t=1067}{AWS re:Invent 2021 - Under the hood at Amazon Ads}.\\
+          {\texttt{FenixSPService} (a.k.a. Fenix) is orchestration engine that serves \href{https://advertising.amazon.com/solutions/products/sponsored-products}{Sponsored-Products Ads} on Amazon.com retail website and mobile app worldwide. Fenix is a high-throughput low-latency real-time distributed service that delivers curated ads per user.\\
+          -- Worked on migration to Native AWS (NAWS) delivering the first proof-of-concept of Fenix on the public/native offering of AWS ecosystem.\\
+          -- Identified \textbf{+20 technical blockers}, led team of engineers to develop simple workaround solutions, and eventually provided a risk-mitigation path for full migration and launch of the service.\\
+          -- Launching Fenix on Native AWS was later featured in \href{https://youtu.be/BS4MPpEO66I?t=1067}{AWS re:Invent 2021 - Under the hood at Amazon Ads}.\\
+          -- Authored the remote-debugging runbook for Fenix on Native AWS, still used by \textbf{400+ engineers} across the ad-server organization and partner teams.\\
           -- Participated in on-call and DevOps rotations; improving pipelines and monitoring to implement best practices of Continuous Integration \& Delivery CI/CD.}
+		\resumeItem{Engineering Excellence \& Mentorship}
+          {Mechanisms and people work across the ad-serving organization.\\
+          -- Reviewed \textbf{148 code changes for 25 engineers across six-plus organizations} in one half, while authoring \textbf{67 changes across 17 packages}.\\
+          -- Stood up engineering-governance mechanisms for the new ad server's core filtering services (canonical runbooks, an automated code-review guardrail, reusable knowledge-base skills), since adopted by \textbf{three partner organizations}.\\
+          -- Built developer-velocity tooling with agentic GenAI coding tools; moved all eight of the service's packages to JDK 21.\\
+          -- Mentored five engineers, onboarded three new hires, wrote promotion feedback for five, and conducted seven interview loops; in training as a change-management Bar Raiser.}
 	\resumeItemListEnd
 
     \resumeSubheading
@@ -132,14 +164,11 @@ Proven experience in real-time ad-delivery systems, distributed data-store syste
       {Software Engineer}{}
       \resumeItemListStart
         \resumeItem{HTML Toolkit}
-          {Designed the architecture for a new HTML-based platform-agnostic UI widget rendering toolkit.\\
-          -- Led a team of engineers to develop and migrate \href{https://www.webalo.com}{Webalo}'s User Agent applications to the new toolkit and retire the Java Canvas-based toolkit.
-          Utilizing TypeScript and Web Components in \textbf{Angular 7}, \textbf{Bootstrap}, and JavaScript/CSS.}
+          {Designed the architecture of a platform-agnostic, HTML-based UI widget-rendering toolkit and led the team that migrated \href{https://www.webalo.com}{Webalo}'s User Agent applications onto it, retiring the Java Canvas-based toolkit (TypeScript, Web Components, Angular, Bootstrap).}
         \resumeItem{CI/CD}
-          {Automated system build, execution of integration and end-to-end tests, and binaries distribution through using Git Hooks, \textbf{Jenkins}, and Shell scripting.}
-        \resumeItem{Unit \& Integration testing}
-          {Spearheaded the effort to set up and design system testing framework for developing integration tests.\\
-          -- Utilizing \textbf{TestNG} and \textbf{Mockito} for module testing and \textbf{Selenium} for end-to-end testing.}
+          {Automated the system build, integration and end-to-end test execution, and binary distribution with Git Hooks, Jenkins, and shell scripting.}
+        \resumeItem{Unit \& Integration Testing}
+          {Set up and designed the system testing framework for integration tests: TestNG and Mockito for module testing, Selenium for end-to-end testing.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -147,7 +176,7 @@ Proven experience in real-time ad-delivery systems, distributed data-store syste
       {Software Engineering Intern}{}
       \resumeItemListStart
         \resumeItem{Sandlot}
-          {As part of the \href{https://careersonair.withgoogle.com/events/insidegtech}{G-Tech team}, integrated sentiment prediction into Google's partners management tool. Responsible for the design and implementation of the new feature using \textbf{Python} and \textbf{AngularJS}.}
+          {As part of the \href{https://careersonair.withgoogle.com/events/insidegtech}{G-Tech team}, designed and built sentiment prediction inside Google's partner-management tool (Python, AngularJS).}
       \resumeItemListEnd
       
 \pagebreak
@@ -157,13 +186,9 @@ Proven experience in real-time ad-delivery systems, distributed data-store syste
       {Software Engineer}{}
       \resumeItemListStart
         \resumeItem{ARTS}
-          {System for road traffic estimation based on user cell-phone data analytics. Building \textbf{Android} SDK for location and sensor data collection.\\
-          Collaborating with research team on developing production ready algorithms and modules for data processing back-end system using \textbf{Spring Boot} and data pipeline through Apache Camel.\\
-          Responsible for implementation and testing of \textbf{Kalman-filter} user speed estimator.\\
-          Utilized \href{https://postgis.net/}{PostGIS} to implement spatial queries consumed by various modules of the system.\\
-          Implemented \textbf{Android} app that uses traffic SDK to push data to the back-end and query the system for estimated traffic state. The application was used by business team for demo/presentation and by the research team for system evaluation.}
+          {Location-based road-traffic estimation from cell-phone sensor data, developed side by side with the research team in an R\&D setting: built the Android sensor-collection SDK, implemented and validated the Kalman-filter speed estimator (sensor fusion), the Spring Boot and Apache Camel back-end modules, \href{https://postgis.net/}{PostGIS} spatial queries, and the Android app used for demos and system evaluation.}
         \resumeItem{EYE360}
-          {Augmented reality application providing bi-directional user interaction built using \textbf{Unity3D} and Qualcomm \textbf{Vuforia} SDK}
+          {Augmented reality application with bi-directional user interaction on \href{https://unity.com/}{Unity3D} and \href{https://www.qualcomm.com/news/releases/2014/09/qualcomm-announces-vuforia-digital-eyewear-powering-next-generation}{Qualcomm Vuforia SDK}.}
       \resumeItemListEnd
 
 %    \resumeSubheading
@@ -190,13 +215,6 @@ Proven experience in real-time ad-delivery systems, distributed data-store syste
 %          {Designed and implemented data batch-processor driven by cron jobs for consuming system data, via optimized SQL queries, and delivering custom notification in \textbf{Java} and \textbf{shell scripts}.}
 %      \resumeItemListEnd
 
-    \resumeSubheading
-      {Alexandria University}{Sep 2012 - Jan 2013}
-      {Teaching Assistant}{}
-      \resumeItemListStart
-        \resumeItem{In Special Scientific Program (SSP)}
-          {Teaching Introduction to Databases and Numerical Analysis courses.}
-      \resumeItemListEnd
 
 %    \resumeSubheading
 %      {Innuva, IT}{Jul 2011 - Oct 2011}
@@ -215,12 +233,13 @@ Proven experience in real-time ad-delivery systems, distributed data-store syste
   \footnotetext{Technologies are listed in decreasing order of experience.}
 
   \resumeSubHeadingListStart
-    \resumeSubItem{Advanced Computing}{Distributed Cloud Computing -- Global Geo-separated Data Stores -- Distributed Caching -- Serverless Architectures}
+    \resumeSubItem{Advanced Computing}{Real-time Ad Serving and Filtering at Scale -- Distributed Cloud Computing -- Global Geo-separated Data Stores -- Distributed Caching -- Serverless Architectures}
     \resumeSubItem{Data Protection and Cybersecurity}{DDOS Protection, WAF, and API Authentication Protocols -- Cryptology and Data Privacy}
 	\resumeSubItem{Tech Business Domains}{E-Commerce and Advertising -- Music and Live Broadcast -- Digital Data Transformation -- Location-based Services -- Augment Reality}
-    \resumeSubItem{Languages}{Java -- Swift -- Python -- TypeScript -- HTML/JavaScript/CSS -- SQL}
-    \resumeSubItem{Frameworks}{iOS -- ReactNative -- Spring MVC/Boot -- Bootstrap -- Angular 7 -- Unity3D -- Android}
+    \resumeSubItem{Languages}{Java -- Python -- Swift -- TypeScript -- HTML/JavaScript/CSS -- SQL}
+    \resumeSubItem{Frameworks}{iOS -- ReactNative -- Spring MVC/Boot -- Bootstrap -- Angular -- Unity3D -- Android}
     \resumeSubItem{CI/CD}{CDK-- Jenkins -- TestNG -- Selenium -- Mockito/PowerMock -- Jasmine/Karma}
+    \resumeSubItem{GenAI / Agentic Development}{Amazon Q -- agentic coding workflows -- LLM-assisted developer tooling}
 
     \vspace{5pt}
   \resumeSubHeadingListEnd
@@ -232,31 +251,37 @@ Proven experience in real-time ad-delivery systems, distributed data-store syste
     \resumeSubheading
       {Alexandria University, Faculty of Engineering}{Sep 2007 -- Jul 2012}
       {B.Sc. Computer and Systems Engineering}{}
+    \resumeSubheading
+      {Alexandria University, Special Scientific Program}{Sep 2012 - Jan 2013}
+      {Teaching Assistant: Introduction to Databases, Numerical Analysis}{}
   \resumeSubHeadingListEnd
   
   
 %-----------CONTINUOUS EDUCATION-----------------
-\section{Continuous Education \footnotemark}
+\section{Continuous Learning \footnotemark}
   \footnotetext{Certificates are available upon request.}
+  \begin{multicols}{2}
+  \raggedcolumns
    \resumeSubHeadingListStart
-	\resumeSubItem{Architecture and Developing on AWS}{AWS Hands-on Training}
-	\resumeSubItem{DevOps on AWS}{AWS Hands-on Training}
-	\resumeSubItem{Security Engineering on AWS}{AWS Hands-on Training}
-    \resumeSubItem{Programming Languages}{Coursera - Washington Uni}
-    \resumeSubItem{Introduction to Functional Programming in Scala}{Coursera}
-    \resumeSubItem{Applied Cryptography}{Udacity}
-    \resumeSubItem{Introduction to Cryptography}{Coursera - Stanford}
-    \resumeSubItem{Introduction to Recommender Systems}{Coursera - Uni of Minnesota}
-    \resumeSubItem{Algorithms Design and Analysis}{Coursera - Stanford}
-    \resumeSubItem{CSMM.102x Machine Learning}{Edx - ColumbiaX}
-    \resumeSubItem{CSMM.101x Artificial Intelligence}{Edx - ColumbiaX}
-    \resumeSubItem{Introduction to AI for Robotics}{Udacity}
-    \resumeSubItem{Machine Learning}{Coursera}
-    \resumeSubItem{Coding the Matrix}{Coursera}
-    \resumeSubItem{Scalable Machine Learning}{Edx}
-
-    \vspace{5pt}
+	\resumeColItem{Agentic AI: Multi-Agent Collaboration}{Amazon Machine Learning University (2026)}
+    \resumeColItem{Generative AI with Large Language Models}{DeepLearning.AI and AWS, Coursera (2025)}
+    \resumeColItem{Architecture and Developing on AWS}{AWS Hands-on Training}
+	\resumeColItem{DevOps on AWS}{AWS Hands-on Training}
+	\resumeColItem{Security Engineering on AWS}{AWS Hands-on Training}
+    \resumeColItem{Programming Languages}{Coursera - Washington Uni}
+    \resumeColItem{Introduction to Functional Programming in Scala}{Coursera}
+    \resumeColItem{Applied Cryptography}{Udacity}
+    \resumeColItem{Introduction to Cryptography}{Coursera - Stanford}
+    \resumeColItem{Introduction to Recommender Systems}{Coursera - Uni of Minnesota}
+    \resumeColItem{Algorithms Design and Analysis}{Coursera - Stanford}
+    \resumeColItem{CSMM.102x Machine Learning}{Edx - ColumbiaX}
+    \resumeColItem{CSMM.101x Artificial Intelligence}{Edx - ColumbiaX}
+    \resumeColItem{Introduction to AI for Robotics}{Udacity}
+    \resumeColItem{Machine Learning}{Coursera}
+    \resumeColItem{Coding the Matrix}{Coursera}
+    \resumeColItem{Scalable Machine Learning}{Edx}
   \resumeSubHeadingListEnd
+  \end{multicols}
 
 
 %--------ACADEMIC PROJECTS------------

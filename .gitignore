@@ -378,3 +378,6 @@ TSWLatexianTemp*
 
 
 # End of https://www.gitignore.io/api/tex,latex
+
+# Local-only working files
+private/
